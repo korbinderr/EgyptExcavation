@@ -28,6 +28,21 @@ namespace Intex00.Controllers
             return View();
         }
 
+        public IActionResult Burials()
+        {
+            return View();
+        }
+
+        public IActionResult Supervised()
+        {
+            return View();
+        }
+
+        public IActionResult Unsupervised()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
