@@ -1,0 +1,66 @@
+﻿@model Burialall7
+
+<h3>Create New Mummy</h3>
+
+<div>
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+
+        <input asp-for="@Model.Id" type="hidden" />
+        <label asp-for="@Model.Sex">Sex</label>
+        <select asp-for="@Model.Sex">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="U">Unknown</option>
+        </select>
+
+        <label asp-for="@Model.Depth">Depth</label>
+        <input asp-for="@Model.Depth" /><br />
+
+        <label asp-for="@Model.Ageatdeath">Age at Death</label>
+        <select asp-for="@Model.Ageatdeath">
+            <option value="">Select an Age</option>
+            <option value="A">Adult</option>
+            <option value="C">Child</option>
+            <option value="I">Infant</option>
+            <option value="N">Newborn</option>
+            <option value="U">Unknown</option>
+        </select>
+
+        <label asp-for="@Model.Headdirection">Head Direction</label>
+        <input asp-for="@Model.Headdirection" /><br />
+
+        <label asp-for="@Model.Haircolor">Hair Color:</label>
+        <select asp-for="@Model.Haircolor">
+            <option value="">Select a Hair Color</option>
+            <option value="B">Brown/Dark Brown/Lt Brown</option>
+            <option value="K">Black</option>
+            <option value="A">Brown-Red</option>
+            <option value="R">Red/Red-Bl</option>
+            <option value="D">Blond</option>
+            <option value="U">Unknown</option>
+        </select>"
+
+        <label asp-for="@Model.Value">Textile Color:</label>
+        <input asp-for="@Model.Value" /><br />
+
+        <label asp-for="@Model.Value4">Textile Structure:</label>
+        <input asp-for="@Model.Value4" /><br />
+
+        <label asp-for="@Model.Burialid">Burial ID:</label>
+        <input asp-for="@Model.Burialid" /><br />
+
+        <label asp-for="@Model.Value5">Textile Function:</label>
+        <input asp-for="@Model.Value5" /><br />
+
+        @*<label asp-for="@Model.Headdirection"></label>
+            <select asp-for="">
+                <option value="">Select .....</option>
+                @foreach (....m in Model)
+                {
+                    <option value="@m.Id">@m.......</option>
+                }
+            </select>*@
+        <button type="submit">Add Mummy</button>
+    </form>
+</div>

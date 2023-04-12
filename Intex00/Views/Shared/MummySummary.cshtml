@@ -1,0 +1,22 @@
+﻿@*
+*@
+
+
+@model Burialall7
+
+
+<tbody>
+    <tr>
+        <td>@Model.Sex</td>
+        <td>@Model.Depth</td>
+        <td>@Model.Ageatdeath</td>
+        <td>@Model.Headdirection</td>
+        <td>@Model.Haircolor</td>
+        <td>@Model.Value</td>
+        <td>@Model.Value4</td>
+        <td>@Model.Burialid</td>
+        <td>@Model.Value5</td>
+        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@Model.Keyid">Edit</a></td>
+        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@Model.Keyid">Delete</a></td>
+    </tr>
+</tbody>

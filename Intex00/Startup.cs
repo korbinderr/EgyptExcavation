@@ -1,5 +1,6 @@
 using Intex00.Areas.Identity.Data;
 using Intex00.Data;
+using Intex00.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,7 +37,7 @@ namespace Intex00
             services.AddRazorPages();
             // services.AddScoped<UserManager<ApplicationUser>>();
 
-            services.AddDbContext<MummyDbContext>(options =>
+            services.AddDbContext<MummiesContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("PostgreSQLConnection")));
         }
 

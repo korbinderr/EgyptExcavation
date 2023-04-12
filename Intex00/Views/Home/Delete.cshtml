@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Delete Burial";
+}
+@model Burialall7
+
+<h2>Confirm Deletion</h2>
+<h3>Are you sure you want to delete the record for @Model.Keyid ?</h3>
+<form method="post" asp-action="Delete">
+    <button type="submit">Delete</button>
+    <a asp-controller="Home" asp-action="Summary" class="btn btn-primary">Cancel</a>
+
+    <input type="hidden" asp-for="Keyid" />
+</form>
+
+<table class="table table-bordered table-striped">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Sex</td>
+            <td>Burial Depth</td>
+            <td>Age at Death</td>
+            <td>Head Direction</td>
+            <td>Hair Color</td>
+            <td>Textile Color</td>
+            <td>Textile Structure</td>
+            <td>Burial ID</td>
+            <td>Textile Function</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Sex</td>
+            <td>@Model.Depth</td>
+            <td>@Model.Ageatdeath</td>
+            <td>@Model.Headdirection</td>
+            <td>@Model.Haircolor</td>
+            <td>@Model.Value</td>
+            <td>@Model.Value4</td>
+            <td>@Model.Burialid</td>
+            <td>@Model.Value5</td>
+        </tr>
+    </tbody>
+</table>

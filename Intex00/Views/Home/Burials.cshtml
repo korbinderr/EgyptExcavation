@@ -1,8 +1,13 @@
-﻿@{
+﻿@using Intex00.Models.MummyViewModels
+
+@{
     ViewData["Title"] = "Burials";
 }
+
+@model MummyViewModel 
+
 <div class="text-center">
-<h1 class="display-4">Burial Records</h1>
+    <h1 class="display-4">Burial Records</h1>
 </div>
 
 <audio controls="controls" id="audio" style="display:none;">
@@ -16,7 +21,82 @@
     };
 </script>
 
-
-
-
 <p>All records here:</p>
+<table class="table table-bordered table-striped">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Sex</td>
+            <td>Burial Depth</td>
+            <td>Age at Death</td>
+            <td>Head Direction</td>
+            <td>Hair Color</td>
+            <td>Textile Color</td>
+            <td>Textile Structure</td>
+            <td>Burial ID</td>
+            <td>Textile Function</td>
+        </tr>
+    </thead>
+    @foreach (Burialall7 b in Model.burials)
+    {
+        <partial name="MummySummary" model="b" />
+    }
+</table>
+
+<div>
+    <form method="get">
+        @*@<input asp-for="@Model.Id" type="hidden" />
+            <label asp-for="@Model.Sex">Sex</label>
+            <select asp-for="@Model.Sex">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="U">Unknown</option>
+            </select>
+
+            <label asp-for="@Model.Depth">Depth</label>
+            <input asp-for="@Model.Depth" /><br />
+
+            <label asp-for="@Model.Ageatdeath">Age at Death</label>
+            <select asp-for="@Model.Ageatdeath">
+                <option value="">Select an Age</option>
+                <option value="A">Adult</option>
+                <option value="C">Child</option>
+                <option value="I">Infant</option>
+                <option value="N">Newborn</option>
+                <option value="U">Unknown</option>
+            </select>
+
+            <label asp-for="@Model.Headdirection">Head Direction</label>
+            <input asp-for="@Model.Headdirection" /><br />*@
+
+        <label id="haircolor" name="haircolor">Hair Color:</label>
+        <select id="haircolor" name="haircolor">
+            <option value="">Select a Hair Color</option>
+            <option value="B">Brown/Dark Brown/Lt Brown</option>
+            <option value="K">Black</option>
+            <option value="A">Brown-Red</option>
+            <option value="R">Red/Red-Bl</option>
+            <option value="D">Blond</option>
+            <option value="U">Unknown</option>
+        </select>"
+
+        @*<label asp-for="@Model.Value">Textile Color:</label>
+            <input asp-for="@Model.Value" /><br />
+
+            <label asp-for="@Model.Value4">Textile Structure:</label>
+            <input asp-for="@Model.Value4" /><br />
+
+            <label asp-for="@Model.Burialid">Burial ID:</label>
+            <input asp-for="@Model.Burialid" /><br />
+
+            <label asp-for="@Model.Value5">Textile Function:</label>
+            <input asp-for="@Model.Value5" /><br />*@
+
+
+        <button type="submit" asp-action="Summary">Filter</button>
+    </form>
+</div>
+
+<div page-blah="@Model.PageInfo" page-action="Summary" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" class="btn-group pull-right m-1">
+</div>
