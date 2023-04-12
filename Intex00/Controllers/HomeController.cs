@@ -68,7 +68,7 @@ namespace Intex00.Controllers
             context.Add(ba);
             context.SaveChanges();
 
-            return Redirect("Burial");
+            return Redirect("Burials");
         }
 
         [HttpGet]
@@ -87,11 +87,11 @@ namespace Intex00.Controllers
             {
                 context.Update(ba);//Adds info from the form
                 context.SaveChanges();//Saves the info to the database.
-                return RedirectToAction("Burial");
+                return RedirectToAction("Burials");
             }
             else
             {
-                return View("Burial");
+                return View("Burials");
             }
 
         }
@@ -108,7 +108,7 @@ namespace Intex00.Controllers
             context.Burialall7.Remove(ba);
             context.SaveChanges();
 
-            return RedirectToAction("Summary");
+            return RedirectToAction("Burials");
         }
 
         public IActionResult Supervised()
