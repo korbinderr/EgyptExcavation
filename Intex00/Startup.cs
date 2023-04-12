@@ -65,6 +65,10 @@ namespace Intex00
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("typepage",
+                    "headdirection={headdirection}haircolor={haircolor}textilecolor={textilecolor}textilefunction={textilefunction}textilestructure={textilestructure}sex={sex}ageatdeath={ageatdeath}depth={depth}/Page{pageNum}",
+                    new { Controller = "Home", action = "Burial" });
+               // string headdirection, string haircolor, string textilecolor, string textilefunction, string textilestructure, string sex, string ageatdeath, string depth
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

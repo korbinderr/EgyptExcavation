@@ -47,7 +47,17 @@ namespace Intex00.Infrastructure
             {
                 TagBuilder tb = new TagBuilder("a");
 
-                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i,
+                    sex = vc.HttpContext.Request.Query["sex"],
+                    depth = vc.HttpContext.Request.Query["depth"],
+                    ageatdeath = vc.HttpContext.Request.Query["ageatdeath"],
+                    headdirection = vc.HttpContext.Request.Query["headdirection"],
+                    haircolor = vc.HttpContext.Request.Query["haircolor"],
+                    textilecolor = vc.HttpContext.Request.Query["textilecolor"],
+                    textilestructure = vc.HttpContext.Request.Query["textilestructure"],
+                    burialid = vc.HttpContext.Request.Query["burialid"],
+                    textilefunction = vc.HttpContext.Request.Query["textilefunction"]
+                });
                 if (PageClassesEnabled)
                 {
                     tb.AddCssClass(PageClass);
