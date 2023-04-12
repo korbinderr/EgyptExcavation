@@ -21,7 +21,6 @@
     };
 </script>
 
-<p>All records here:</p>
 <table class="table table-bordered table-striped">
     <thead class="font-weight-bold">
         <tr>
@@ -44,59 +43,59 @@
 
 <div>
     <form method="get">
-        @*@<input asp-for="@Model.Id" type="hidden" />
-            <label asp-for="@Model.Sex">Sex</label>
-            <select asp-for="@Model.Sex">
+            <label id="sex" name="sex">Sex</label>
+            <select id="sex" name="sex">
+                <option></option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
-                <option value="U">Unknown</option>
+                <option value="">Unknown</option>
             </select>
 
-            <label asp-for="@Model.Depth">Depth</label>
-            <input asp-for="@Model.Depth" /><br />
+            <label id="depth" name="depth">Depth</label>
+            <input id="depth" name="depth" /><br />
 
-            <label asp-for="@Model.Ageatdeath">Age at Death</label>
-            <select asp-for="@Model.Ageatdeath">
-                <option value="">Select an Age</option>
+            <label id="ageatdeath" name="adgeatdeath">Age at Death</label>
+            <select id="ageatdeath" name="ageatdeath">
+                <option></option>
                 <option value="A">Adult</option>
                 <option value="C">Child</option>
                 <option value="I">Infant</option>
                 <option value="N">Newborn</option>
-                <option value="U">Unknown</option>
+                <option value="">Unknown</option>
             </select>
 
-            <label asp-for="@Model.Headdirection">Head Direction</label>
-            <input asp-for="@Model.Headdirection" /><br />*@
+            <label id="headdirection" name="headdirection">Head Direction</label>
+            <input id="headdirection" name="headdirection" /><br />
 
         <label id="haircolor" name="haircolor">Hair Color:</label>
         <select id="haircolor" name="haircolor">
-            <option value="">Select a Hair Color</option>
+            <option></option>
             <option value="B">Brown/Dark Brown/Lt Brown</option>
             <option value="K">Black</option>
             <option value="A">Brown-Red</option>
             <option value="R">Red/Red-Bl</option>
             <option value="D">Blond</option>
-            <option value="U">Unknown</option>
+            <option value="">Unknown</option>
         </select>"
 
-        @*<label asp-for="@Model.Value">Textile Color:</label>
-            <input asp-for="@Model.Value" /><br />
+        <label id="textilecolor" name="textilecolor">Textile Color:</label>
+            <input id="textilecolor" name="textilecolor" /><br />
 
-            <label asp-for="@Model.Value4">Textile Structure:</label>
-            <input asp-for="@Model.Value4" /><br />
+            <label id="textilestructure" name="textilestructure">Textile Structure:</label>
+            <input id="textilestructure" name="textilestructure" /><br />
 
-            <label asp-for="@Model.Burialid">Burial ID:</label>
-            <input asp-for="@Model.Burialid" /><br />
+            <label id="burialid" name="burialid">Burial ID:</label>
+            <input id="burialid" name="burialid"/><br />
 
-            <label asp-for="@Model.Value5">Textile Function:</label>
-            <input asp-for="@Model.Value5" /><br />*@
+            <label id="textilefunction" name="textilefunction">Textile Function:</label>
+            <input id="textilefunction" name="textilefunction" /><br />
 
 
         <button type="submit" asp-action="Burials">Filter</button>
     </form>
 </div>
 
-<div page-blah="@Model.PageInfo" page-action="Summary" page-classes-enabled="true"
+<div page-blah="@Model.PageInfo" page-action="Burials" page-classes-enabled="true"
      page-class="btn" page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary" class="btn-group pull-right m-1">
 </div>

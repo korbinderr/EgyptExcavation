@@ -31,7 +31,7 @@ namespace Intex00.Controllers
             return View();
         }
 
-        public IActionResult Burials(string direction, string haircolor, int pageNum = 1)
+        public IActionResult Burials(string headdirection, string haircolor, string textilecolor, string textilefunction, string textilestructure, string sex, string ageatdeath, string depth, int pageNum = 1)
         {
 
             int pageSize = 10;
@@ -39,16 +39,20 @@ namespace Intex00.Controllers
             var x = new MummyViewModel
             {
                 burials = context.Burialall7
-                .Where(m => (m.Headdirection == direction || direction == null) && (m.Haircolor == haircolor || haircolor == null))
+                .Where(m => (m.Headdirection == headdirection || headdirection == null) && (m.Haircolor == haircolor || haircolor == null) && (m.Value == textilecolor || textilecolor == null)
+                && (m.Value4 == textilestructure || textilestructure == null) && (m.Sex == sex || sex == null) && (m.Ageatdeath == ageatdeath || ageatdeath == null)
+                && (m.Depth == depth || depth == null) && (m.Value5 == textilefunction || textilefunction == null))
 
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumMummies = (direction == null
-                    ? context.Burialmain.Count()
-                    : context.Burialmain.Where(m => m.Haircolor == haircolor).Count()),
+                    TotalNumMummies = (haircolor == null
+                    ? context.Burialall7.Count()
+                    : context.Burialall7.Where(m => (m.Headdirection == headdirection || headdirection == null) && (m.Haircolor == haircolor || haircolor == null) && (m.Value == textilecolor || textilecolor == null)
+                && (m.Value4 == textilestructure || textilestructure == null) && (m.Sex == sex || sex == null) && (m.Ageatdeath == ageatdeath || ageatdeath == null)
+                && (m.Depth == depth || depth == null) && (m.Value5 == textilefunction || textilefunction == null)).Count()),
                     MummiesPerPage = pageSize,
                     CurrentPage = pageNum
                 }
