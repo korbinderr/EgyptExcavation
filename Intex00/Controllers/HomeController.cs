@@ -1,6 +1,7 @@
 ﻿using Intex00.Areas.Identity.Data;
 using Intex00.Models;
 using Intex00.Models.MummyViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Intex00.Controllers
@@ -28,6 +30,14 @@ namespace Intex00.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated) {
+                string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                ApplicationUser user = _userManager.FindByIdAsync(userId).Result;
+
+                // Do something with the user object, such as getting their first name:
+                string firstName = user.FirstName;
+                ViewBag.FirstName = firstName;
+            }
             return View();
         }
 
@@ -60,12 +70,14 @@ namespace Intex00.Controllers
             return View(x);
         }
 
+        [Authorize(Roles = "Admin,Researcher,TA")]
         [HttpGet]
         public IActionResult Add()
         {
             return View("Creating");
         }
 
+        [Authorize(Roles = "Admin,Researcher,TA")]
         [HttpPost]
         public IActionResult Add(Burialall7 ba)
         {
@@ -75,6 +87,7 @@ namespace Intex00.Controllers
             return Redirect("Burials");
         }
 
+        [Authorize(Roles = "Admin,Researcher,TA")]
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -84,6 +97,7 @@ namespace Intex00.Controllers
             return View("Creating", mummy);
         }
 
+        [Authorize(Roles = "Admin,Researcher,TA")]
         [HttpPost]
         public IActionResult Edit(Burialall7 ba)
         {
@@ -100,12 +114,14 @@ namespace Intex00.Controllers
 
         }
 
+        [Authorize(Roles= "Admin,Researcher,TA")]
         public IActionResult Delete(int id)
         {
             var mummy = context.Burialall7.Single(x => x.Keyid == id);
             return View(mummy);
         }
 
+        [Authorize(Roles = "Admin,Researcher,TA")]
         [HttpPost]
         public IActionResult Delete(Burialall7 ba)
         {
@@ -130,6 +146,14 @@ namespace Intex00.Controllers
         {
             return View();
         }
+
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin()
+        {
+            return View();
+        }
+
 
         public IActionResult Privacy()
         {

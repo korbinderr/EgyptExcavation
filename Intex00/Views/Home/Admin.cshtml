@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Administrative Tools</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email Address</th>
+                            <th>Role</th>
+                            <th>Change Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Admin</td>
+                            <td>Admin</td>
+                            <td>egyptadmin@admin.com</td>
+                            <td>Admin</td>
+                            <td>
+                                <select class="form-control" id="role1" name="role1">
+                                    <option value="admin" selected>Admin</option>
+                                    <option value="researcher">Researcher</option>
+                                    <option value="ta">TA</option>
+                                    <option value="guest">Guest</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kerry</td>
+                            <td>Muhlestein</td>
+                            <td>kmuhlestein@gmail.com</td>
+                            <td>Researcher</td>
+                            <td>
+                                <select class="form-control" id="role1" name="role1">
+                                    <option value="admin">Admin</option>
+                                    <option value="researcher" selected>Researcher</option>
+                                    <option value="ta">TA</option>
+                                    <option value="guest">Guest</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Laurel</td>
+                            <td>Higbee</td>
+                            <td>lhigbee@gmail.com</td>
+                            <td>TA</td>
+                            <td>
+                                <select class="form-control" id="role1" name="role1">
+                                    <option value="admin">Admin</option>
+                                    <option value="researcher">Researcher</option>
+                                    <option value="ta" selected>TA</option>
+                                    <option value="guest">Guest</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
