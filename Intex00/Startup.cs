@@ -63,8 +63,9 @@ namespace Intex00
                 options.Password.RequiredUniqueChars = 0;
             });
 
+            string connectionString = Environment.GetEnvironmentVariable("MY_CONNECTION_STRING");
             services.AddDbContext<MummiesContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("PostgreSQLConnection")));
+                options.UseNpgsql(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
