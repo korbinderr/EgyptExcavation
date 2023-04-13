@@ -115,6 +115,12 @@ namespace Intex00.Controllers
             return RedirectToAction("Burials");
         }
 
+        public IActionResult ExtendedBurial(int id)
+        {
+            var mummy = context.Burialall7.Single(x => x.Keyid == id);
+            return View(mummy);
+        }
+
         public IActionResult Supervised()
         {
             return View();
