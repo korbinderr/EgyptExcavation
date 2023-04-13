@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Intex00
 {
@@ -32,7 +33,9 @@ namespace Intex00
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                    .AddRoles<IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>();
+
 
             //GDPR cookie notification
             services.Configure<CookiePolicyOptions>(options =>
@@ -63,8 +66,9 @@ namespace Intex00
                 options.Password.RequiredUniqueChars = 0;
             });
 
+            string connectionString = Environment.GetEnvironmentVariable("MY_CONNECTION_STRING");
             services.AddDbContext<MummiesContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("PostgreSQLConnection")));
+                options.UseNpgsql(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

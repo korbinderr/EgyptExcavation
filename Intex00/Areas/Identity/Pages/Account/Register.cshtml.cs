@@ -83,11 +83,52 @@ namespace Intex00.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email , FirstName = Input.FirstName, 
+                LastName = Input.LastName};
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    // Get the user by their email
+                    var user2 = await _userManager.FindByEmailAsync(Input.Email);
+
+                    // Get the user's first name
+                    var firstName = user2.FirstName;
+                    var lastName = user2.LastName;
+
+                    // Add the user to the role based on their first name
+                    switch (firstName + ' ' + lastName)
+                    {
+                        case "Admin Admin":
+                            await _userManager.AddToRoleAsync(user, "Admin");
+                            break;
+                        case "Kerry Muhlestein":
+                            await _userManager.AddToRoleAsync(user, "Researcher");
+                            break;
+                        case "Anne Kwaspen":
+                            await _userManager.AddToRoleAsync(user, "Researcher");
+                            break;
+                        case "Paul Evans":
+                            await _userManager.AddToRoleAsync(user, "Researcher");
+                            break;
+                        case "Kristin South":
+                            await _userManager.AddToRoleAsync(user, "Researcher");
+                            break;
+                        case "McKay Moulton":
+                            await _userManager.AddToRoleAsync(user, "TA");
+                            break;
+                        case "Laurel Higbee":
+                            await _userManager.AddToRoleAsync(user, "TA");
+                            break;
+                        case "Taylor Bullock":
+                            await _userManager.AddToRoleAsync(user, "TA");
+                            break;
+                        default:
+                            // Handle if the user's first name does not match any of the roles
+                            break;
+                    }
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
