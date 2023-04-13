@@ -63,12 +63,15 @@ namespace Intex00.Controllers
         [HttpGet]
         public IActionResult Add()
         {
+            ViewBag.Title = "Add";
             return View("Creating");
         }
 
         [HttpPost]
         public IActionResult Add(Burialall7 ba)
         {
+            
+
             context.Add(ba);
             context.SaveChanges();
 
@@ -78,6 +81,7 @@ namespace Intex00.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            ViewBag.Title = "Edit";
 
             var mummy = context.Burialall7.Single(x => x.Keyid == id);
 

@@ -2,16 +2,19 @@
     ViewData["Title"] = "Burial Age over Time";
 }
 <div class="text-center">
-<h2 class="display-4">Burial Age over Time</h2>
+<h3 class="display-4">Burial Age over Time</h3>
 </div>
+<br />
 
 <!--Unsupervised model and explaination-->
 <div class="text-center">
     <h3>What can we learn from the Age at Death across time?</h3>
     <br />
+    <hr />
     <br />
     <h5>Below we can see two different graphs. Both give us an insight into how burials have changed over time by the age the mummies died.</h5>
 </div>
+<br />
 <div class="container">
     <div class="row">
         <div class="col">
@@ -21,14 +24,24 @@
         </div>
         <div class="col">
             <h3>Age at Death and Depth Heatmap</h3>
-            <img src="~/lib/img/heatmap.png" width="550" height="550" alt="Age at Death and Depth Heatmap"/>
+            <img src="~/lib/img/heatmap.png" width="550" height="550" alt="Age at Death and Depth Heatmap" />
             <p>The heatmap above shows Age at Death and Depth (the larger the depth, the older the mummy).</p>
         </div>
     </div>
+    <br /><br />
+    <hr />
+    <br />
     <div class="row">
-        <p>Both of these graphs provide some insight into how Age at Death has changed over time.</p>
-        <p>Between the depths of 1.27 and 0.68 there are significantly more Children burried than any other time before.</p>
-        <p></p>
+        <!--summary of what the graphs tell us-->
+        <p>
+            The two graphs illustrate the relationship between burial depth, age of the mummies, and the number of children, infants, 
+            and newborns buried in an ancient burial site. The first graph shows the cluster groups representing the number of 
+            adults, children, and infants burried at each depth. While the second graph demonstrates that the deeper the burial, 
+            the fewer children, infants, and newborns are buried. This suggests that in ancient times, 
+            it was more common to bury only adults, as the likelihood of finding child burials decreased with depth. 
+            Overall, the graphs suggest that burial practices in ancient times were different from modern times, 
+            and give insight into the demographics of ancient societies.
+        </p>
     </div>
 </div>
 
