@@ -1,6 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using Microsoft.AspNetCore.Identity
+@using Intex00.Areas.Identity.Data
+@using Intex00.Models;
+@using Intex00.Models.MummyViewModels;
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.Extensions.Logging;
+@using System;
+@using System.Collections.Generic;
+@using System.Diagnostics;
+@using System.Linq;
+@using System.Security.Claims;
+@using System.Threading.Tasks;
 
 <!--GDPR cookie notification-->
 <partial name="_CookieConsentPartial" />
@@ -8,5 +21,19 @@
 <div class="text-center">
     <h1 class="display-4">Welcome to BYU's Fag El-Gamous</h1>
     <p></p>
-    <img src="~/lib/img/camels.jpg" />
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Welcome, @ViewBag.FirstName!</p>
+
+    }
+    else
+    {
+        <p>Welcome!</p>
+    }
+
+    <br /><br />
+
+    <h4>Learn more about every one of our 1,000+ mummy excavations!</h4>
+    <h4>Explore our data visualization</h4>
+
 </div>

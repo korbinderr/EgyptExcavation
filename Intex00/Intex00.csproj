@@ -20,6 +20,7 @@
     <None Include=".ebextensions\02_grant_executable_rights.config" />
     <None Include=".ebextensions\03_renew_ssl_certificate_cron_job.config" />
     <None Include=".platform\hooks\postdeploy\00_get_certificate.sh" />
+    <None Include="IdentityManagerUI.csproj" />
   </ItemGroup>
 
   <ItemGroup>
