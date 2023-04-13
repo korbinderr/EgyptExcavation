@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.ML.OnnxRuntime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,10 @@ namespace Intex00
             services.AddControllersWithViews();
             services.AddRazorPages();
             // services.AddScoped<UserManager<ApplicationUser>>();
-
+            //For the API
+            services.AddSingleton(
+                new InferenceSession("decision_tree_model.onnx")
+                );
             //password settings
             services.Configure<IdentityOptions>(options =>
             {
@@ -88,9 +92,9 @@ namespace Intex00
             app.UseAuthorization();
 
             //csp header
-            app.Use(async (context, next) => {
-                context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self; img-src 'self'; frame-src 'self'");
-
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self'; font-src 'self; img-src 'self'; frame-src 'self'");
                 await next();
             });
 

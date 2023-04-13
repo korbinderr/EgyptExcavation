@@ -11,10 +11,72 @@
     <p>Enter the following known fields:</p>
 
     <!--form for the user to enter in information to be fed to the API-->
-    <form>
-        <lable>Lable1</lable>
-        <input />
+    <form id="myform">
+        <label for="squarenorthsouth">Square North-South:</label>
+        <input type="number" id="squarenorthsouth" name="squarenorthsouth" />
+        <br>
+        <label for="depth">Depth:</label>
+        <input type="number" id="depth" name="depth" />
+        <br>
+        <label for="squareeastwest">Square East-West:</label>
+        <input type="number" id="squareeastwest" name="squareeastwest" />
+        <br>
+        <label for="westtohead">West to Head:</label>
+        <input type="number" id="westtohead" name="westtohead" />
+        <br>
+        <label for="westtofeet">West to Feet:</label>
+        <input type="number" id="westtofeet" name="westtofeet" />
+        <br>
+        <label for="southtofeet">South to Feet:</label>
+        <input type="number" id="southtofeet" name="southtofeet" />
+        <br>
+        <label for="fieldbookexcavationyear">Field Book Excavation Year:</label>
+        <input type="number" id="fieldbookexcavationyear" name="fieldbookexcavationyear" />
+        <br>
+        <label for="eastwest_E">East-West E:</label>
+        <input type="number" id="eastwest_E" name="eastwest_E" />
+        <br>
+        <label for="eastwest_W">East-West W:</label>
+        <input type="number" id="eastwest_W" name="eastwest_W" />
+        <br>
+        <label for="adultsubadult_A">Adult-Subadult A:</label>
+        <input type="number" id="adultsubadult_A" name="adultsubadult_A" />
+        <br>
+        <label for="adultsubadult_C">Adult-Subadult C:</label>
+        <input type="number" id="adultsubadult_C" name="adultsubadult_C" />
+        <br>
+        <label for="samplescollected_false">Samples Collected (False):</label>
+        <input type="number" id="samplescollected_false" name="samplescollected_false" />
+        <br>
+        <label for="samplescollected_true">Samples Collected (True):</label>
+        <input type="number" id="samplescollected_true" name="samplescollected_true" />
+        <br>
+        <label for="samplescollected_unknown">Samples Collected (Unknown):</label>
+        <input type="number" id="samplescollected_unknown" name="samplescollected_unknown" />
+        <br>
+        <label for="area_NE">Area NE:</label>
+        <input type="number" id="area_NE" name="area_NE" />
+        <br>
+        <label for="area_NNW">Area NNW:</label>
+        <input type="number" id="area_NNW" name="area_NNW" />
+        <br>
+        <label for="area_NW">Area NW:</label>
+        <input type="number" id="area_NW" name="area_NW" />
+        <br>
+        <label for="area_SE">Area SE:</label>
+        <input type="number" id="area_SE" name="area_SE" />
+        <br>
+        <label for="area_SW">Area SW:</label>
+        <input type="number" id="area_SW" name="area_SW" />
+        <label for="const">const</label>
+        <input type="number" id="const" name="const" />
+        <br>
+        <br>
+        <input type="button" id="postSubmit" value="Calculate" onclick="submitForm()" />
+
     </form>
+    <p id="predictionResult"></p>
+
 </div>
 
 <!--values key-->
@@ -26,4 +88,85 @@
         <li>B: Bones and/or only partial remnants of wrapping remains</li>
     </ul>
 </aside>
+<p id="resultParagraph"></p>
+<button onclick="myFunction()">Click Me</button>
+<script>
+function myFunction() {
+        document.getElementById("demo").innerHTML = "Hello World";
+    };
+    function showAlert() {
+        console.log("Button clicked!");
+    };
+    function submitForm() {
+        // Get form elements
+        const squarenorthsouth = parseInt(document.getElementById('squarenorthsouth').value);
+        const depth = parseInt(document.getElementById('depth').value);
+        const squareeastwest = parseInt(document.getElementById('squareeastwest').value);
+        const westtohead = parseInt(document.getElementById('westtohead').value);
+        const westtofeet = parseInt(document.getElementById('westtofeet').value);
+        const southtofeet = parseInt(document.getElementById('southtofeet').value);
+        const fieldbookexcavationyear = parseInt(document.getElementById('fieldbookexcavationyear').value);
+        const eastwest_E = parseInt(document.getElementById('eastwest_E').value);
+        const eastwest_W = parseInt(document.getElementById('eastwest_W').value);
+        const adultsubadult_A = parseInt(document.getElementById('adultsubadult_A').value);
+        const adultsubadult_C = parseInt(document.getElementById('adultsubadult_C').value);
+        const samplescollected_false = parseInt(document.getElementById('samplescollected_false').value);
+        const samplescollected_true = parseInt(document.getElementById('samplescollected_true').value);
+        const samplescollected_unknown = parseInt(document.getElementById('samplescollected_unknown').value);
+        const area_NE = parseInt(document.getElementById('area_NE').value);
+        const area_NNW = parseInt(document.getElementById('area_NNW').value);
+        const area_NW = parseInt(document.getElementById('area_NW').value);
+        const area_SE = parseInt(document.getElementById('area_SE').value);
+        const area_SW = parseInt(document.getElementById('area_SW').value);
+        const consts = parseInt(document.getElementById('const').value);
+
+
+        // Create data object
+        const data = {
+            squarenorthsouth,
+            depth ,
+            squareeastwest,
+            westtohead ,
+            westtofeet,
+            southtofeet,
+            fieldbookexcavationyear,
+            eastwest_E,
+            eastwest_W,
+            adultsubadult_A,
+            adultsubadult_C,
+            samplescollected_false,
+            samplescollected_true,
+            samplescollected_unknown,
+            area_NE,
+            area_NNW,
+            area_NW,
+            area_SE,
+            area_SW,
+            consts
+        };
+
+        // Send POST request
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify(data);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("/predict", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                // Get reference to <p> tag
+                const resultParagraph = document.getElementById('resultParagraph');
+                // Update text content of <p> tag with the API result
+                resultParagraph.textContent = 'API Result: ' + JSON.stringify(result);
+            })
+            .catch(error => console.log('error', error));
+    }
+</script>
 
