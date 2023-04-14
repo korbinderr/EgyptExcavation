@@ -19,6 +19,7 @@ namespace Intex00.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<HomeController> _logger;
         private MummiesContext context;
+        
 
         public HomeController(UserManager<ApplicationUser> userManager, ILogger<HomeController> logger, MummiesContext temp)
         {
@@ -46,6 +47,8 @@ namespace Intex00.Controllers
 
             int pageSize = 10;
 
+
+
             var x = new MummyViewModel
             {
                 burials = context.Burialall7
@@ -55,6 +58,7 @@ namespace Intex00.Controllers
 
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
+
 
                 PageInfo = new PageInfo
                 {
@@ -70,11 +74,12 @@ namespace Intex00.Controllers
             return View(x);
         }
 
-        [Authorize(Roles = "Admin,Researcher,TA")]
+        //[Authorize(Roles = "Admin,Researcher,TA")]
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult Add(string returnUrl)
         {
-            ViewBag.Title = "Add";
+         
+            ViewBag.Title = "Add Record";
             return View("Creating");
         }
 
@@ -90,13 +95,16 @@ namespace Intex00.Controllers
             return Redirect("Burials");
         }
 
-        [Authorize(Roles = "Admin,Researcher,TA")]
+        //[Authorize(Roles = "Admin,Researcher,TA")]
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ViewBag.Title = "Edit";
-
+            ViewBag.Title = "Edit Record";
+            
+          
             var mummy = context.Burialall7.Single(x => x.Keyid == id);
+
+            ViewBag.Extra = "Burial ID: " + mummy.Id;
 
             return View("Creating", mummy);
         }
@@ -105,6 +113,9 @@ namespace Intex00.Controllers
         [HttpPost]
         public IActionResult Edit(Burialall7 ba)
         {
+
+
+
             if (ModelState.IsValid)
             {
                 context.Update(ba);//Adds info from the form

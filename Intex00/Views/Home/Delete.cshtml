@@ -6,40 +6,401 @@
 }
 @model Burialall7
 
-<h2>Confirm Deletion</h2>
-<h3>Are you sure you want to delete the record for @Model.Keyid ?</h3>
+<div class="container">
+    <h1 class="display-4">Confirm Deletion</h1>
+    <br />
+<h5>Are you sure you want to delete the record for @Model.Id ?</h5>
 <form method="post" asp-action="Delete">
     <button type="submit">Delete</button>
-    <a asp-controller="Home" asp-action="Summary" class="btn btn-primary">Cancel</a>
+    <a asp-controller="Home" asp-action="Burials" class="btn btn-primary">Cancel</a>
 
     <input type="hidden" asp-for="Keyid" />
 </form>
+</div>
+<br />
 
-<table class="table table-bordered table-striped">
-    <thead class="font-weight-bold">
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <h5>Burial Main</h5>
+        <tr>
+            <td>Squarenorthsouth</td>
+            <td>@Model.Squarenorthsouth</td>
+        </tr>
+        <tr>
+            <td>Headdirection</td>
+            <td>@Model.Headdirection
+        </tr>
         <tr>
             <td>Sex</td>
-            <td>Burial Depth</td>
-            <td>Age at Death</td>
-            <td>Head Direction</td>
-            <td>Hair Color</td>
-            <td>Textile Color</td>
-            <td>Textile Structure</td>
-            <td>Burial ID</td>
-            <td>Textile Function</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
             <td>@Model.Sex</td>
+        </tr>
+        <tr>
+            <td>Northsouth</td>
+            <td>@Model.Northsouth</td>
+        </tr>
+        <tr>
+            <td>Depth</td>
             <td>@Model.Depth</td>
-            <td>@Model.Ageatdeath</td>
-            <td>@Model.Headdirection</td>
+        </tr>
+        <tr>
+            <td>Eastwest</td>
+            <td>@Model.Eastwest</td>
+        </tr>
+        <tr>
+            <td>Adultsubadult</td>
+            <td>@Model.Adultsubadult</td>
+        </tr>
+        <tr>
+            <td>Facebundles</td>
+            <td>@Model.Facebundles</td>
+        </tr>
+        <tr>
+            <td>Southtohead</td>
+            <td>@Model.Southtohead</td>
+        </tr>
+        <tr>
+            <td>Preservation</td>
+            <td>@Model.Preservation</td>
+        </tr>
+        <tr>
+            <td>Fieldbookpage</td>
+            <td>@Model.Fieldbookpage</td>
+        </tr>
+        <tr>
+            <td>Squareeastwest</td>
+            <td>@Model.Squareeastwest</td>
+        </tr>
+        <tr>
+            <td>Goods</td>
+            <td>@Model.Goods</td>
+        </tr>
+        <tr>
+            <td>Text</td>
+            <td>@Model.Text</td>
+        </tr>
+        <tr>
+            <td>Wrapping</td>
+            <td>@Model.Wrapping</td>
+        </tr>
+        <tr>
+            <td>Haircolor</td>
             <td>@Model.Haircolor</td>
+        </tr>
+        <tr>
+            <td>Westtohead</td>
+            <td>@Model.Westtohead</td>
+        </tr>
+        <tr>
+            <td>Samplescollected</td>
+            <td>@Model.Samplescollected</td>
+        </tr>
+        <tr>
+            <td>Area</td>
+            <td>@Model.Area</td>
+        </tr>
+        <tr>
+            <td>Length</td>
+            <td>@Model.Length</td>
+        </tr>
+        <tr>
+            <td>Burialnumber</td>
+            <td>@Model.Burialnumber</td>
+        </tr>
+        <tr>
+            <td>Dataexpertinitials</td>
+            <td>@Model.Dataexpertinitials</td>
+        </tr>
+        <tr>
+            <td>Westtofeet</td>
+            <td>@Model.Westtofeet</td>
+        </tr>
+        <tr>
+            <td>Ageatdeath</td>
+            <td>@Model.Ageatdeath</td>
+        </tr>
+        <tr>
+            <td>Southtofeet</td>
+            <td>@Model.Southtofeet</td>
+        </tr>
+        <tr>
+            <td>Excavationrecorder</td>
+            <td>@Model.Excavationrecorder</td>
+        </tr>
+        <tr>
+            <td>Photos</td>
+            <td>@Model.Photos</td>
+        </tr>
+        <tr>
+            <td>Hair</td>
+            <td>@Model.Hair</td>
+        </tr>
+        <tr>
+            <td>Burialmaterials</td>
+            <td>@Model.Burialmaterials</td>
+        </tr>
+        <tr>
+            <td>Dateofexcavation</td>
+            <td>@Model.Dateofexcavation</td>
+        </tr>
+        <tr>
+            <td>Fieldbookexcavationyear</td>
+            <td>@Model.Fieldbookexcavationyear</td>
+        </tr>
+        <tr>
+            <td>Clusternumber</td>
+            <td>@Model.Clusternumber</td>
+        </tr>
+        <tr>
+            <td>Shaftnumber</td>
+            <td>@Model.Shaftnumber</td>
+        </tr>
+    </table>
+    <br />
+    <h5>Textile</h5>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td>Locale</td>
+            <td>@Model.Locale</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>@Model.Description</td>
+        </tr>
+        <tr>
+            <td>Burialnumber2</td>
+            <td>@Model.Burialnumber2</td>
+        </tr>
+        <tr>
+            <td>Estimatedperiod</td>
+            <td>@Model.Estimatedperiod</td>
+        </tr>
+        <tr>
+            <td>Sampledate</td>
+            <td>@Model.Sampledate</td>
+        </tr>
+        <tr>
+            <td>Photographeddate</td>
+            <td>@Model.Photographeddate</td>
+        </tr>
+        <tr>
+            <td>Direction</td>
+            <td>@Model.Direction</td>
+        </tr>
+        <tr>
+            <td>Color</td>
             <td>@Model.Value</td>
+        </tr>
+        <tr>
+            <td>Analysistype</td>
+            <td>@Model.Analysistype</td>
+        </tr>
+        <tr>
+            <td>Doneby</td>
+            <td>@Model.Doneby</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>@Model.Date</td>
+        </tr>
+        <tr>
+            <td>Decoration</td>
+            <td>@Model.Value2</td>
+        </tr>
+        <tr>
+            <td>Dimensiontype</td>
+            <td>@Model.Dimensiontype</td>
+        </tr>
+        <tr>
+            <td>Dimesion</td>
+            <td>@Model.Value3</td>
+        </tr>
+        <tr>
+            <td>Structure</td>
             <td>@Model.Value4</td>
-            <td>@Model.Burialid</td>
+        </tr>
+        <tr>
+            <td>Function</td>
             <td>@Model.Value5</td>
         </tr>
-    </tbody>
-</table>
+        <tr>
+            <td>Thickness</td>
+            <td>@Model.Thickness</td>
+        </tr>
+        <tr>
+            <td>Angle</td>
+            <td>@Model.Angle</td>
+        </tr>
+        <tr>
+            <td>Manipulation</td>
+            <td>@Model.Manipulation</td>
+        </tr>
+        <tr>
+            <td>Material</td>
+            <td>@Model.Material</td>
+        </tr>
+        <tr>
+            <td>Count</td>
+            <td>@Model.Count</td>
+        </tr>
+        <tr>
+            <td>Component</td>
+            <td>@Model.Component</td>
+        </tr>
+        <tr>
+            <td>Ply</td>
+            <td>@Model.Ply</td>
+        </tr>
+        <tr>
+            <td>Direction2</td>
+            <td>@Model.Direction2</td>
+        </tr>
+        <tr>
+            <td>Burialnumber3</td>
+            <td>@Model.Burialnumber3</td>
+        </tr>
+    </table>
+    <br />
+    <h5>Body Analysis Chart</h5>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td>Dateofexamination</td>
+            <td>@Model.Dateofexamination</td>
+        </tr>
+        <tr>
+            <td>Preservationindex</td>
+            <td>@Model.Preservationindex</td>
+        </tr>
+        <tr>
+            <td>Haircolor2</td>
+            <td>@Model.Haircolor2</td>
+        </tr>
+        <tr>
+            <td>Observations</td>
+            <td>@Model.Observations</td>
+        </tr>
+        <tr>
+            <td>Robust</td>
+            <td>@Model.Robust</td>
+        </tr>
+        <tr>
+            <td>Supraorbitalridges</td>
+            <td>@Model.Supraorbitalridges</td>
+        </tr>
+        <tr>
+            <td>Orbitedge</td>
+            <td>@Model.Orbitedge</td>
+        </tr>
+        <tr>
+            <td>Parietalblossing</td>
+            <td>@Model.Parietalblossing</td>
+        </tr>
+        <tr>
+            <td>Gonion</td>
+            <td>@Model.Gonion</td>
+        </tr>
+        <tr>
+            <td>Nuchalcrest</td>
+            <td>@Model.Nuchalcrest</td>
+        </tr>
+        <tr>
+            <td>Zygomaticcrest</td>
+            <td>@Model.Zygomaticcrest</td>
+        </tr>
+        <tr>
+            <td>Sphenooccipitalsynchrondrosis</td>
+            <td>@Model.Sphenooccipitalsynchrondrosis</td>
+        </tr>
+        <tr>
+            <td>Lamboidsuture</td>
+            <td>@Model.Lamboidsuture</td>
+        </tr>
+        <tr>
+            <td>Squamossuture</td>
+            <td>@Model.Squamossuture</td>
+        </tr>
+        <tr>
+            <td>Toothattrition</td>
+            <td>@Model.Toothattrition</td>
+        </tr>
+        <tr>
+            <td>Tootheruption</td>
+            <td>@Model.Tootheruption</td>
+        </tr>
+        <tr>
+            <td>Tootheruptionageestimate</td>
+            <td>@Model.Tootheruptionageestimate</td>
+        </tr>
+        <tr>
+            <td>Ventralarc</td>
+            <td>@Model.Ventralarc</td>
+        </tr>
+        <tr>
+            <td>Subpubicangle</td>
+            <td>@Model.Subpubicangle</td>
+        </tr>
+        <tr>
+            <td>Sciaticnotch</td>
+            <td>@Model.Sciaticnotch</td>
+        </tr>
+        <tr>
+            <td>Pubicbone</td>
+            <td>@Model.Pubicbone</td>
+        </tr>
+        <tr>
+            <td>Preauricularsulcus</td>
+            <td>@Model.Preauricularsulcus</td>
+        </tr>
+        <tr>
+            <td>MedialIpRamus</td>
+            <td>@Model.MedialIpRamus</td>
+        </tr>
+        <tr>
+            <td>Dorsalpitting</td>
+            <td>@Model.Dorsalpitting</td>
+        </tr>
+        <tr>
+            <td>Femur</td>
+            <td>@Model.Femur</td>
+        </tr>
+        <tr>
+            <td>Humerus</td>
+            <td>@Model.Humerus</td>
+        </tr>
+        <tr>
+            <td>Femurheaddiameter</td>
+            <td>@Model.Femurheaddiameter</td>
+        </tr>
+        <tr>
+            <td>Humerusheaddiameter</td>
+            <td>@Model.Humerusheaddiameter</td>
+        </tr>
+        <tr>
+            <td>Femurlength</td>
+            <td>@Model.Femurlength</td>
+        </tr>
+        <tr>
+            <td>Humeruslegnth</td>
+            <td>@Model.Humeruslegnth</td>
+        </tr>
+        <tr>
+            <td>Tibia</td>
+            <td>@Model.Tibia</td>
+        </tr>
+        <tr>
+            <td>Estimatestature</td>
+            <td>@Model.Estimatestature</td>
+        </tr>
+        <tr>
+            <td>Osteophytosis</td>
+            <td>@Model.Osteophytosis</td>
+        </tr>
+        <tr>
+            <td>CariesPeriodontalDisease</td>
+            <td>@Model.CariesPeriodontalDisease</td>
+        </tr>
+        <tr>
+            <td>Notes</td>
+            <td>@Model.Notes</td>
+        </tr>
+    </table>
+</div>
