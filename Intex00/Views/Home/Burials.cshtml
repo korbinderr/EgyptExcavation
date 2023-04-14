@@ -19,73 +19,73 @@
             </div>
             <br />
 
-            <form method="get">
+            <form method="get" role="form">        
 
-                <div class="form-group">
-                    <label id="sex" name="sex">Sex</label>
-                    <select id="sex" name="sex">
-                        <option></option>
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
-                        <option value="">Unknown</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label id="sex" name="sex">Sex</label><br />
+                        <select id="sex" name="sex">
+                            <option></option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="">Unknown</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label id="depth" name="depth">Depth</label>
-                    <input id="depth" name="depth" /><br />
-                </div>
-                <div class="form-group">
-                    <label id="ageatdeath" name="adgeatdeath">Age at Death</label>
-                    <select id="ageatdeath" name="ageatdeath">
-                        <option></option>
-                        <option value="A">Adult</option>
-                        <option value="C">Child</option>
-                        <option value="I">Infant</option>
-                        <option value="N">Newborn</option>
-                        <option value="">Unknown</option>
-                    </select>
-                </div>
-                <div class="form-group">
+                    <div class="form-group">
+                        <label id="depth" name="depth">Depth</label><br />
+                        <input id="depth" name="depth" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label id="ageatdeath" name="adgeatdeath">Age at Death</label><br />
+                        <select id="ageatdeath" name="ageatdeath">
+                            <option></option>
+                            <option value="A">Adult</option>
+                            <option value="C">Child</option>
+                            <option value="I">Infant</option>
+                            <option value="N">Newborn</option>
+                            <option value="">Unknown</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
 
-                    <label id="headdirection" name="headdirection">Head Direction</label>
-                    <input id="headdirection" name="headdirection" /><br />
-                </div>
-                <div class="form-group">
-                    <label id="haircolor" name="haircolor">Hair Color:</label>
-                    <select id="haircolor" name="haircolor">
-                        <option></option>
-                        <option value="B">Brown/Dark Brown/Lt Brown</option>
-                        <option value="K">Black</option>
-                        <option value="A">Brown-Red</option>
-                        <option value="R">Red/Red-Bl</option>
-                        <option value="D">Blond</option>
-                        <option value="">Unknown</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label id="textilecolor" name="textilecolor">Textile Color:</label>
-                    <input id="textilecolor" name="textilecolor" /><br />
-                </div>
-                <div class="form-group">
-                    <label id="textilestructure" name="textilestructure">Textile Structure:</label>
-                    <input id="textilestructure" name="textilestructure" /><br />
-                </div>
-                <div class="form-group">
+                        <label id="headdirection" name="headdirection">Head Direction</label><br />
+                        <input id="headdirection" name="headdirection" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label id="haircolor" name="haircolor">Hair Color:</label><br />
+                        <select id="haircolor" name="haircolor">
+                            <option></option>
+                            <option value="B">Brown/Dark Brown/Lt Brown</option>
+                            <option value="K">Black</option>
+                            <option value="A">Brown-Red</option>
+                            <option value="R">Red/Red-Bl</option>
+                            <option value="D">Blond</option>
+                            <option value="">Unknown</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label id="textilecolor" name="textilecolor">Textile Color:</label><br />
+                        <input id="textilecolor" name="textilecolor" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label id="textilestructure" name="textilestructure">Textile Structure:</label><br />
+                        <input id="textilestructure" name="textilestructure" /><br />
+                    </div>
+                    <div class="form-group">
 
-                    <label id="burialid" name="burialid">Burial ID:</label>
-                    <input id="burialid" name="burialid" /><br />
-                </div>
-                <div class="form-group">
-                    <label id="textilefunction" name="textilefunction">Textile Function:</label>
-                    <input id="textilefunction" name="textilefunction" /><br /><br />
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary" asp-action="Burials">Filter</button>
-                </div>
-            </form>
+                        <label id="burialid" name="burialid">Burial ID:</label><br />
+                        <input id="burialid" name="burialid" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label id="textilefunction" name="textilefunction">Textile Function:</label><br />
+                        <input id="textilefunction" name="textilefunction" /><br /><br />
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" asp-action="Burials">Filter</button>
+                    </div>
+                </form>
 
-        </div>
+</div>
     </div>
     <br />
     <div class="col-10">

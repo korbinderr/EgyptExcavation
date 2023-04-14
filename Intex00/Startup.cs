@@ -53,7 +53,7 @@ namespace Intex00
             // services.AddScoped<UserManager<ApplicationUser>>();
             //For the API
             services.AddSingleton(
-                new InferenceSession("decision_tree_model.onnx")
+                new InferenceSession("wwwroot/decision_tree_model.onnx")
                 );
             //password settings
             services.Configure<IdentityOptions>(options =>
