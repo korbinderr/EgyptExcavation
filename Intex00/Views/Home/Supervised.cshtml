@@ -7,8 +7,7 @@
     <br />
     <br />
     <h4>Enter in the following information to have a predicted wrapping returned.</h4>
-    <br /><br />
-    <p>Enter the following known fields:</p>
+    <br />
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4">
@@ -108,15 +107,16 @@
                         <input class="form-control" type="number" id="area_SW" name="area_SW" />
                     </div>
 
-                    <label for="const">const</label>
-                    <input type="number" id="const" name="const" value="1" />
+                    
+                    <input hidden type="number" id="const" name="const" value="1" />
                     <br>
                     <br>
                     <input type="button" class="btn btn-primary" id="postSubmit" value="Calculate" onclick="submitForm()" />
 
                 </form>
-                <p>API RESULT: </p>
-                <p id="resultParagraph"></p>
+                <br />
+                <h4>API RESULT: </h4>
+                <h3 id="resultParagraph"></h3>
             </div>
         </div>
     </div>
@@ -134,7 +134,7 @@
     </ul>
 </aside>
 <p id="resultParagraph"></p>
-<button onclick="myFunction()">Click Me</button>
+
 <script>
     function myFunction() {
         document.getElementById("demo").innerHTML = "Hello World";

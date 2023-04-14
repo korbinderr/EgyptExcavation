@@ -62,7 +62,7 @@ namespace Intex00
                 options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
-                options.Password.RequiredLength = 13;
+                options.Password.RequiredLength = 14;
                 options.Password.RequiredUniqueChars = 0;
             });
 

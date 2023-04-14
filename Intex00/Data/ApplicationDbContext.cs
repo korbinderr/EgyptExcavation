@@ -13,5 +13,6 @@ namespace Intex00.Data
             : base(options)
         {
         }
+
     }
 }
