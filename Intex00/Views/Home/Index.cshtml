@@ -18,22 +18,53 @@
 <!--GDPR cookie notification-->
 <partial name="_CookieConsentPartial" />
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to BYU's Fag El-Gamous</h1>
-    <p></p>
-    @if (User.Identity.IsAuthenticated)
-    {
-        <p>Welcome, @ViewBag.FirstName!</p>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
 
-    }
-    else
-    {
-        <p>Welcome!</p>
-    }
+<body id="page-top">
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0 text-uppercase">Fag El-Gamous</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Learn more about every one of our 1,000+ mummy excavations!</h2>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Explore our data visualization</h2>
+                    <a class="btn btn-primary" asp-controller="Home" asp-action="Burials">View All Burials</a>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+    
+    
+    @*<div class="text-center">
+        <h1 class="display-4">Welcome to BYU's Fag El-Gamous</h1>
+        <p></p>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>Welcome, @ViewBag.FirstName!</p>
 
-    <br /><br />
+        }
+        else
+        {
+            <p>Welcome!</p>
+        }
 
-    <h4>Learn more about every one of our 1,000+ mummy excavations!</h4>
-    <h4>Explore our data visualization</h4>
+        <br /><br />
 
-</div>
+        <h4>Learn more about every one of our 1,000+ mummy excavations!</h4>
+        <h4>Explore our data visualization</h4>
+    </div>*@

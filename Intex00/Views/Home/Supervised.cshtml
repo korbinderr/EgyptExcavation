@@ -1,7 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Wrap Prediction";
-}
-
+﻿@{ ViewData["Title"] = "Wrap Prediction"; }
+<style>
+    .form-group{text-align:left !important}
+</style>
 <div class="text-center">
     <h1 class="display-4">Wrap Prediction Tool</h1>
     <br />
@@ -9,72 +9,118 @@
     <h4>Enter in the following information to have a predicted wrapping returned.</h4>
     <br /><br />
     <p>Enter the following known fields:</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <!--form for the user to enter in information to be fed to the API-->
+                <form id="myform" role="form">
+                    <div class="form-group">
+                        <label for="squarenorthsouth">Square North-South:</label>
+                        <input class="form-control" type="number" id="squarenorthsouth" name="squarenorthsouth" />
+                    </div>
+                    <div class="form-group">
+                        <label for="depth">Depth:</label><br>
+                        <input class="form-control" type="number" id="depth" name="depth" />
+                    </div>
+                    <div class="form-group">
+                        <label for="squareeastwest">Square East-West:</label><br>
+                        <input class="form-control" type="number" id="squareeastwest" name="squareeastwest" />
+                    </div>
 
-    <!--form for the user to enter in information to be fed to the API-->
-    <form id="myform">
-        <label for="squarenorthsouth">Square North-South:</label>
-        <input type="number" id="squarenorthsouth" name="squarenorthsouth" />
-        <br>
-        <label for="depth">Depth:</label>
-        <input type="number" id="depth" name="depth" />
-        <br>
-        <label for="squareeastwest">Square East-West:</label>
-        <input type="number" id="squareeastwest" name="squareeastwest" />
-        <br>
-        <label for="westtohead">West to Head:</label>
-        <input type="number" id="westtohead" name="westtohead" />
-        <br>
-        <label for="westtofeet">West to Feet:</label>
-        <input type="number" id="westtofeet" name="westtofeet" />
-        <br>
-        <label for="southtofeet">South to Feet:</label>
-        <input type="number" id="southtofeet" name="southtofeet" />
-        <br>
-        <label for="fieldbookexcavationyear">Field Book Excavation Year:</label>
-        <input type="number" id="fieldbookexcavationyear" name="fieldbookexcavationyear" />
-        <br>
-        <label for="eastwest_E">East-West E:</label>
-        <input type="number" id="eastwest_E" name="eastwest_E" />
-        <br>
-        <label for="eastwest_W">East-West W:</label>
-        <input type="number" id="eastwest_W" name="eastwest_W" />
-        <br>
-        <label for="adultsubadult_A">Adult-Subadult A:</label>
-        <input type="number" id="adultsubadult_A" name="adultsubadult_A" />
-        <br>
-        <label for="adultsubadult_C">Adult-Subadult C:</label>
-        <input type="number" id="adultsubadult_C" name="adultsubadult_C" />
-        <br>
-        <label for="samplescollected_false">Samples Collected (False):</label>
-        <input type="number" id="samplescollected_false" name="samplescollected_false" />
-        <br>
-        <label for="samplescollected_true">Samples Collected (True):</label>
-        <input type="number" id="samplescollected_true" name="samplescollected_true" />
-        <br>
-        <label for="samplescollected_unknown">Samples Collected (Unknown):</label>
-        <input type="number" id="samplescollected_unknown" name="samplescollected_unknown" />
-        <br>
-        <label for="area_NE">Area NE:</label>
-        <input type="number" id="area_NE" name="area_NE" />
-        <br>
-        <label for="area_NNW">Area NNW:</label>
-        <input type="number" id="area_NNW" name="area_NNW" />
-        <br>
-        <label for="area_NW">Area NW:</label>
-        <input type="number" id="area_NW" name="area_NW" />
-        <br>
-        <label for="area_SE">Area SE:</label>
-        <input type="number" id="area_SE" name="area_SE" />
-        <br>
-        <label for="area_SW">Area SW:</label>
-        <input type="number" id="area_SW" name="area_SW" />
-        <input hidden type="number" id="const" name="const" value="1"/>
-        <br>
-        <br>
-        <input type="button" id="postSubmit" value="Calculate" onclick="submitForm()" />
+                    <div class="form-group">
+                        <label for="westtohead">West to Head:</label><br>
+                        <input class="form-control" type="number" id="westtohead" name="westtohead" />
+                    </div>
 
-    </form>
-    <p id="predictionResult"></p>
+                    <div class="form-group">
+                        <label for="westtofeet">West to Feet:</label><br>
+                        <input class="form-control" type="number" id="westtofeet" name="westtofeet" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="southtofeet">South to Feet:</label><br>
+                        <input class="form-control" type="number" id="southtofeet" name="southtofeet" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fieldbookexcavationyear">Field Book Excavation Year:</label><br>
+                        <input class="form-control" type="number" id="fieldbookexcavationyear" name="fieldbookexcavationyear" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eastwest_E">East-West E:</label><br>
+                        <input class="form-control" type="number" id="eastwest_E" name="eastwest_E" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eastwest_W">East-West W:</label><br>
+                        <input class="form-control" type="number" id="eastwest_W" name="eastwest_W" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adultsubadult_A">Adult-Subadult A:</label><br>
+                        <input class="form-control" type="number" id="adultsubadult_A" name="adultsubadult_A" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adultsubadult_C">Adult-Subadult C:</label><br>
+                        <input class="form-control" type="number" id="adultsubadult_C" name="adultsubadult_C" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="samplescollected_false">Samples Collected (False):</label><br>
+                        <input class="form-control" type="number" id="samplescollected_false" name="samplescollected_false" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="samplescollected_true">Samples Collected (True):</label><br>
+                        <input class="form-control" type="number" id="samplescollected_true" name="samplescollected_true" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="samplescollected_unknown">Samples Collected (Unknown):</label><br>
+                        <input class="form-control" type="number" id="samplescollected_unknown" name="samplescollected_unknown" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="area_NE">Area NE:</label><br>
+                        <input class="form-control" type="number" id="area_NE" name="area_NE" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="area_NNW">Area NNW:</label><br>
+                        <input class="form-control" type="number" id="area_NNW" name="area_NNW" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="area_NW">Area NW:</label><br>
+                        <input class="form-control" type="number" id="area_NW" name="area_NW" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="area_SE">Area SE:</label><br>
+                        <input class="form-control" type="number" id="area_SE" name="area_SE" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="area_SW">Area SW:</label><br>
+                        <input class="form-control" type="number" id="area_SW" name="area_SW" />
+                    </div>
+
+                    <label for="const">const</label>
+                    <input type="number" id="const" name="const" value="1" />
+                    <br>
+                    <br>
+                    <input type="button" class="btn btn-primary" id="postSubmit" value="Calculate" onclick="submitForm()" />
+
+                </form>
+                <p>API RESULT: </p>
+                <p id="resultParagraph"></p>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 
@@ -90,7 +136,7 @@
 <p id="resultParagraph"></p>
 <button onclick="myFunction()">Click Me</button>
 <script>
-function myFunction() {
+    function myFunction() {
         document.getElementById("demo").innerHTML = "Hello World";
     };
     function showAlert() {
@@ -123,9 +169,9 @@ function myFunction() {
         // Create data object
         const data = {
             squarenorthsouth,
-            depth ,
+            depth,
             squareeastwest,
-            westtohead ,
+            westtohead,
             westtofeet,
             southtofeet,
             fieldbookexcavationyear,
@@ -161,9 +207,13 @@ function myFunction() {
             .then(response => response.text())
             .then(result => {
                 // Get reference to <p> tag
+                const jsonObject = JSON.parse(result);
+                // Get the value of the "predictedValue" key
+                const predictedValue = jsonObject.predictedValue;
+                // Get reference to <p> tag
                 const resultParagraph = document.getElementById('resultParagraph');
-                // Update text content of <p> tag with the API result
-                resultParagraph.textContent = 'API Result: ' + JSON.stringify(result);
+                // Update text content of <p> tag with the extracted value
+                resultParagraph.textContent = predictedValue;
             })
             .catch(error => console.log('error', error));
     }

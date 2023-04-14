@@ -6,11 +6,15 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
+    @*<link href="~/css/styles.css" rel="stylesheet" />*@
+    <!--bootstrap stylesheet-->
 </head>
+
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
+    <!--class="navbar navbar1 navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3"-->
+        <nav style="background-color: #e3f2fd;" class="navbar navbar-light navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" >
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Fag El-Gamous</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -45,8 +49,7 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
+    <div class="p-xl-2">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

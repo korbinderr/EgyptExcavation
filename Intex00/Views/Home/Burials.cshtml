@@ -4,10 +4,119 @@
     ViewData["Title"] = "Burials";
 }
 
-@model MummyViewModel 
-
 <div class="text-center">
     <h1 class="display-4">Burial Records</h1>
+    <br />
+</div>
+
+
+<div class="row">
+    <div class="card card-outline-primary col-2">
+        <div class="container">
+            <div class="text-center">
+                <br />
+                <h5>Filters</h5>
+            </div>
+            <br />
+
+            <form method="get">
+
+                <div class="form-group">
+                    <label id="sex" name="sex">Sex</label>
+                    <select id="sex" name="sex">
+                        <option></option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="">Unknown</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label id="depth" name="depth">Depth</label>
+                    <input id="depth" name="depth" /><br />
+                </div>
+                <div class="form-group">
+                    <label id="ageatdeath" name="adgeatdeath">Age at Death</label>
+                    <select id="ageatdeath" name="ageatdeath">
+                        <option></option>
+                        <option value="A">Adult</option>
+                        <option value="C">Child</option>
+                        <option value="I">Infant</option>
+                        <option value="N">Newborn</option>
+                        <option value="">Unknown</option>
+                    </select>
+                </div>
+                <div class="form-group">
+
+                    <label id="headdirection" name="headdirection">Head Direction</label>
+                    <input id="headdirection" name="headdirection" /><br />
+                </div>
+                <div class="form-group">
+                    <label id="haircolor" name="haircolor">Hair Color:</label>
+                    <select id="haircolor" name="haircolor">
+                        <option></option>
+                        <option value="B">Brown/Dark Brown/Lt Brown</option>
+                        <option value="K">Black</option>
+                        <option value="A">Brown-Red</option>
+                        <option value="R">Red/Red-Bl</option>
+                        <option value="D">Blond</option>
+                        <option value="">Unknown</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label id="textilecolor" name="textilecolor">Textile Color:</label>
+                    <input id="textilecolor" name="textilecolor" /><br />
+                </div>
+                <div class="form-group">
+                    <label id="textilestructure" name="textilestructure">Textile Structure:</label>
+                    <input id="textilestructure" name="textilestructure" /><br />
+                </div>
+                <div class="form-group">
+
+                    <label id="burialid" name="burialid">Burial ID:</label>
+                    <input id="burialid" name="burialid" /><br />
+                </div>
+                <div class="form-group">
+                    <label id="textilefunction" name="textilefunction">Textile Function:</label>
+                    <input id="textilefunction" name="textilefunction" /><br /><br />
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" asp-action="Burials">Filter</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <br />
+    <div class="col-10">
+
+        <table class="table table-bordered table-striped">
+            <thead class="font-weight-bold">
+                <tr>
+                    <td>Sex</td>
+                    <td>Burial Depth</td>
+                    <td>Age at Death</td>
+                    <td>Head Direction</td>
+                    <td>Hair Color</td>
+                    <td>Textile Color</td>
+                    <td>Textile Structure</td>
+                    <td>Burial ID</td>
+                    <td>Textile Function</td>
+                </tr>
+            </thead>
+            @foreach (Burialall7 b in Model.burials)
+            {
+                <partial name="MummySummary" model="b" />
+            }
+        </table>
+
+        <vc:types></vc:types>
+    </div>
+</div>
+
+<div page-blah="@Model.PageInfo" page-action="Burials" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" class="btn-group pull-right m-1">
 </div>
 
 <audio controls="controls" id="audio" style="display:none;">
@@ -20,84 +129,3 @@
         audio.play();
     };
 </script>
-
-<table class="table table-bordered table-striped">
-    <thead class="font-weight-bold">
-        <tr>
-            <td>Sex</td>
-            <td>Burial Depth</td>
-            <td>Age at Death</td>
-            <td>Head Direction</td>
-            <td>Hair Color</td>
-            <td>Textile Color</td>
-            <td>Textile Structure</td>
-            <td>Burial ID</td>
-            <td>Textile Function</td>
-        </tr>
-    </thead>
-    @foreach (Burialall7 b in Model.burials)
-    {
-        <partial name="MummySummary" model="b" />
-    }
-</table>
-
-<vc:types></vc:types>
-<div>
-
-    <form method="get">
-            <label id="sex" name="sex">Sex</label>
-            <select id="sex" name="sex">
-                <option></option>
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-                <option value="">Unknown</option>
-            </select>
-
-            <label id="depth" name="depth">Depth</label>
-            <input id="depth" name="depth" /><br />
-
-            <label id="ageatdeath" name="adgeatdeath">Age at Death</label>
-            <select id="ageatdeath" name="ageatdeath">
-                <option></option>
-                <option value="A">Adult</option>
-                <option value="C">Child</option>
-                <option value="I">Infant</option>
-                <option value="N">Newborn</option>
-                <option value="">Unknown</option>
-            </select>
-
-            <label id="headdirection" name="headdirection">Head Direction</label>
-            <input id="headdirection" name="headdirection" /><br />
-
-        <label id="haircolor" name="haircolor">Hair Color:</label>
-        <select id="haircolor" name="haircolor">
-            <option></option>
-            <option value="B">Brown/Dark Brown/Lt Brown</option>
-            <option value="K">Black</option>
-            <option value="A">Brown-Red</option>
-            <option value="R">Red/Red-Bl</option>
-            <option value="D">Blond</option>
-            <option value="">Unknown</option>
-        </select>"
-
-        <label id="textilecolor" name="textilecolor">Textile Color:</label>
-            <input id="textilecolor" name="textilecolor" /><br />
-
-            <label id="textilestructure" name="textilestructure">Textile Structure:</label>
-            <input id="textilestructure" name="textilestructure" /><br />
-
-            <label id="burialid" name="burialid">Burial ID:</label>
-            <input id="burialid" name="burialid"/><br />
-
-            <label id="textilefunction" name="textilefunction">Textile Function:</label>
-            <input id="textilefunction" name="textilefunction" /><br />
-
-
-        <button type="submit" asp-action="Burials">Filter</button>
-    </form>
-</div>
-
-<div page-blah="@Model.PageInfo" page-action="Burials" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary" class="btn-group pull-right m-1">
-</div>
