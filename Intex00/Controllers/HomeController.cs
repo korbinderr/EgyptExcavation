@@ -19,6 +19,7 @@ namespace Intex00.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<HomeController> _logger;
         private MummiesContext context;
+        
 
         public HomeController(UserManager<ApplicationUser> userManager, ILogger<HomeController> logger, MummiesContext temp)
         {
@@ -46,6 +47,8 @@ namespace Intex00.Controllers
 
             int pageSize = 10;
 
+
+
             var x = new MummyViewModel
             {
                 burials = context.Burialall7
@@ -55,6 +58,7 @@ namespace Intex00.Controllers
 
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
+
 
                 PageInfo = new PageInfo
                 {
@@ -72,13 +76,14 @@ namespace Intex00.Controllers
 
         //[Authorize(Roles = "Admin,Researcher,TA")]
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult Add(string returnUrl)
         {
+         
             ViewBag.Title = "Add Record";
             return View("Creating");
         }
 
-        //[Authorize(Roles = "Admin,Researcher,TA")]
+        [Authorize(Roles = "Admin,Researcher,TA")]
         [HttpPost]
         public IActionResult Add(Burialall7 ba)
         {
@@ -96,7 +101,7 @@ namespace Intex00.Controllers
         {
             ViewBag.Title = "Edit Record";
             
-
+          
             var mummy = context.Burialall7.Single(x => x.Keyid == id);
 
             ViewBag.Extra = "Burial ID: " + mummy.Id;
@@ -104,10 +109,13 @@ namespace Intex00.Controllers
             return View("Creating", mummy);
         }
 
-        //[Authorize(Roles = "Admin,Researcher,TA")]
+        [Authorize(Roles = "Admin,Researcher,TA")]
         [HttpPost]
         public IActionResult Edit(Burialall7 ba)
         {
+
+
+
             if (ModelState.IsValid)
             {
                 context.Update(ba);//Adds info from the form
@@ -121,14 +129,14 @@ namespace Intex00.Controllers
 
         }
 
-        //[Authorize(Roles= "Admin,Researcher,TA")]
+        [Authorize(Roles= "Admin,Researcher,TA")]
         public IActionResult Delete(int id)
         {
             var mummy = context.Burialall7.Single(x => x.Keyid == id);
             return View(mummy);
         }
 
-        //[Authorize(Roles = "Admin,Researcher,TA")]
+        [Authorize(Roles = "Admin,Researcher,TA")]
         [HttpPost]
         public IActionResult Delete(Burialall7 ba)
         {

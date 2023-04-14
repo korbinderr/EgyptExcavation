@@ -14,5 +14,7 @@ namespace Intex00.Models.MummyViewModels
         public IQueryable<BurialmainTextile> bmtextile { get; set; }
 
         public PageInfo PageInfo { get; set; }
+
+        public string ReturnUrl { get; set; }
     }
 }

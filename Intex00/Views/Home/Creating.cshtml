@@ -13,152 +13,148 @@
 
 
 
-
 <div class="container">
-    <div class="row">
         <form method="post">
-            <div class="col-md-4">
                 <input asp-for="@Model.Id" type="hidden" />
+                <div class="col-md-4 offset-md-1">
+                    <div class="form-group">
+                        <label asp-for="@Model.Squarenorthsouth">SquareNorthSouth</label>
+                        <input asp-for="@Model.Squarenorthsouth" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Headdirection">Headdirection</label>
+                        <input asp-for="@Model.Headdirection" /><br />
+                    </div>
 
-                <div class="form-group">
-                    <label asp-for="@Model.Squarenorthsouth">SquareNorthSouth</label>
-                    <input asp-for="@Model.Squarenorthsouth" /><br />
+                    <div class="form-group">
+                        <label asp-for="@Model.Sex">Sex</label>
+                        <select asp-for="@Model.Sex">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="U">Unknown</option>
+                        </select><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Northsouth">NorthSouth</label>
+                        <input asp-for="@Model.Northsouth" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Depth">Depth</label>
+                        <input asp-for="@Model.Depth" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Eastwest">EastWest</label>
+                        <input asp-for="@Model.Eastwest" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Adultsubadult">Adultsubadult</label>
+                        <input asp-for="@Model.Adultsubadult" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Facebundles">Face Bundles</label>
+                        <input asp-for="@Model.Facebundles" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Southtohead">South to Head</label>
+                        <input asp-for="@Model.Southtohead" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Preservation">Preservation</label>
+                        <input asp-for="@Model.Preservation" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Fieldbookpage">Field Book Page</label>
+                        <input asp-for="@Model.Fieldbookpage" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Squareeastwest">SquareEastWest</label>
+                        <input asp-for="@Model.Squareeastwest" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Goods">Goods</label>
+                        <input asp-for="@Model.Goods" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Text">Text</label>
+                        <input asp-for="@Model.Text" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Wrapping">Wrapping</label>
+                        <input asp-for="@Model.Wrapping" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Haircolor">Hair Color:</label>
+                        <select asp-for="@Model.Haircolor">
+                            <option value="">Select a Hair Color</option>
+                            <option value="B">Brown/Dark Brown/Lt Brown</option>
+                            <option value="K">Black</option>
+                            <option value="A">Brown-Red</option>
+                            <option value="R">Red/Red-Bl</option>
+                            <option value="D">Blond</option>
+                            <option value="U">Unknown</option>
+                        </select><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Westtohead">West to Head</label>
+                        <input asp-for="@Model.Westtohead" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Samplescollected">Samples Collected</label>
+                        <input asp-for="@Model.Samplescollected" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Area">Area</label>
+                        <input asp-for="@Model.Area" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Length">Length</label>
+                        <input asp-for="@Model.Length" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Burialnumber">Burial Number</label>
+                        <input asp-for="@Model.Burialnumber" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Dataexpertinitials">Data Expert Initials</label>
+                        <input asp-for="@Model.Dataexpertinitials" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Westtofeet">West to Feet</label>
+                        <input asp-for="@Model.Westtofeet" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Ageatdeath">Age at Death</label>
+                        <select asp-for="@Model.Ageatdeath">
+                            <option value="">Select an Age</option>
+                            <option value="A">Adult</option>
+                            <option value="C">Child</option>
+                            <option value="I">Infant</option>
+                            <option value="N">Newborn</option>
+                            <option value="U">Unknown</option>
+                        </select><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Southtofeet">South to Feet</label>
+                        <input asp-for="@Model.Southtofeet" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Excavationrecorder">Excavation Recorder</label>
+                        <input asp-for="@Model.Excavationrecorder" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Photos">Photos</label>
+                        <input asp-for="@Model.Photos" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Hair">Hair</label>
+                        <input asp-for="@Model.Hair" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Burialmaterials">Burial Materials</label>
+                        <input asp-for="@Model.Burialmaterials" /><br />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Headdirection">Headdirection</label>
-                    <input asp-for="@Model.Headdirection" /><br />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label asp-for="@Model.Sex">Sex</label>
-                    <select asp-for="@Model.Sex">
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
-                        <option value="U">Unknown</option>
-                    </select><br />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label asp-for="@Model.Northsouth">NorthSouth</label>
-                    <input asp-for="@Model.Northsouth" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Depth">Depth</label>
-                    <input asp-for="@Model.Depth" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Eastwest">EastWest</label>
-                    <input asp-for="@Model.Eastwest" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Adultsubadult">Adultsubadult</label>
-                    <input asp-for="@Model.Adultsubadult" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Facebundles">Face Bundles</label>
-                    <input asp-for="@Model.Facebundles" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Southtohead">South to Head</label>
-                    <input asp-for="@Model.Southtohead" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Preservation">Preservation</label>
-                    <input asp-for="@Model.Preservation" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Fieldbookpage">Field Book Page</label>
-                    <input asp-for="@Model.Fieldbookpage" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Squareeastwest">SquareEastWest</label>
-                    <input asp-for="@Model.Squareeastwest" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Goods">Goods</label>
-                    <input asp-for="@Model.Goods" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Text">Text</label>
-                    <input asp-for="@Model.Text" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Wrapping">Wrapping</label>
-                    <input asp-for="@Model.Wrapping" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Haircolor">Hair Color:</label>
-                    <select asp-for="@Model.Haircolor">
-                        <option value="">Select a Hair Color</option>
-                        <option value="B">Brown/Dark Brown/Lt Brown</option>
-                        <option value="K">Black</option>
-                        <option value="A">Brown-Red</option>
-                        <option value="R">Red/Red-Bl</option>
-                        <option value="D">Blond</option>
-                        <option value="U">Unknown</option>
-                    </select><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Westtohead">West to Head</label>
-                    <input asp-for="@Model.Westtohead" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Samplescollected">Samples Collected</label>
-                    <input asp-for="@Model.Samplescollected" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Area">Area</label>
-                    <input asp-for="@Model.Area" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Length">Length</label>
-                    <input asp-for="@Model.Length" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Burialnumber">Burial Number</label>
-                    <input asp-for="@Model.Burialnumber" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Dataexpertinitials">Data Expert Initials</label>
-                    <input asp-for="@Model.Dataexpertinitials" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Westtofeet">West to Feet</label>
-                    <input asp-for="@Model.Westtofeet" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Ageatdeath">Age at Death</label>
-                    <select asp-for="@Model.Ageatdeath">
-                        <option value="">Select an Age</option>
-                        <option value="A">Adult</option>
-                        <option value="C">Child</option>
-                        <option value="I">Infant</option>
-                        <option value="N">Newborn</option>
-                        <option value="U">Unknown</option>
-                    </select><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Southtofeet">South to Feet</label>
-                    <input asp-for="@Model.Southtofeet" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Excavationrecorder">Excavation Recorder</label>
-                    <input asp-for="@Model.Excavationrecorder" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Photos">Photos</label>
-                    <input asp-for="@Model.Photos" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Hair">Hair</label>
-                    <input asp-for="@Model.Hair" /><br />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Burialmaterials">Burial Materials</label>
-                    <input asp-for="@Model.Burialmaterials" /><br />
-                </div>
+            <div class="col-md-4 offset-md-1">
                 <div class="form-group">
                     <label asp-for="@Model.Dateofexcavation">Date of Excavation</label>
                     <input asp-for="@Model.Dateofexcavation" /><br />
@@ -183,8 +179,6 @@
                     <label asp-for="@Model.Description">Description</label>
                     <input asp-for="@Model.Description" /><br />
                 </div>
-            </div>
-            <div class="col">
                 <div class="form-group">
                     <label asp-for="@Model.Burialnumber2">Burial Number 2</label>
                     <input asp-for="@Model.Burialnumber2" /><br />
@@ -313,12 +307,12 @@
                     <label asp-for="@Model.Parietalblossing">Parietal Blossing</label>
                     <input asp-for="@Model.Parietalblossing" /><br />
                 </div>
+            </div>
+            <div class="col-md-4 offset-md-1">
                 <div class="form-group">
                     <label asp-for="@Model.Gonion">Gonion</label>
                     <input asp-for="@Model.Gonion" /><br />
                 </div>
-            </div>
-            <div class="col">
                 <div class="form-group">
                     <label asp-for="@Model.Nuchalcrest">Nuchral Crest</label>
                     <input asp-for="@Model.Nuchalcrest" /><br />
@@ -424,12 +418,9 @@
                     <input asp-for="@Model.Notes" /><br />
                 </div>
                 </div>
-
-
-
                 <button type="submit">@ViewBag.Title</button>
         </form>
-    </div>
 </div>
+
 
 
