@@ -70,15 +70,15 @@ namespace Intex00.Controllers
             return View(x);
         }
 
-        [Authorize(Roles = "Admin,Researcher,TA")]
+        //[Authorize(Roles = "Admin,Researcher,TA")]
         [HttpGet]
         public IActionResult Add()
         {
-            ViewBag.Title = "Add";
+            ViewBag.Title = "Add Record";
             return View("Creating");
         }
 
-        [Authorize(Roles = "Admin,Researcher,TA")]
+        //[Authorize(Roles = "Admin,Researcher,TA")]
         [HttpPost]
         public IActionResult Add(Burialall7 ba)
         {
@@ -90,18 +90,21 @@ namespace Intex00.Controllers
             return Redirect("Burials");
         }
 
-        [Authorize(Roles = "Admin,Researcher,TA")]
+        //[Authorize(Roles = "Admin,Researcher,TA")]
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ViewBag.Title = "Edit";
+            ViewBag.Title = "Edit Record";
+            
 
             var mummy = context.Burialall7.Single(x => x.Keyid == id);
+
+            ViewBag.Extra = "Burial ID: " + mummy.Id;
 
             return View("Creating", mummy);
         }
 
-        [Authorize(Roles = "Admin,Researcher,TA")]
+        //[Authorize(Roles = "Admin,Researcher,TA")]
         [HttpPost]
         public IActionResult Edit(Burialall7 ba)
         {
@@ -118,14 +121,14 @@ namespace Intex00.Controllers
 
         }
 
-        [Authorize(Roles= "Admin,Researcher,TA")]
+        //[Authorize(Roles= "Admin,Researcher,TA")]
         public IActionResult Delete(int id)
         {
             var mummy = context.Burialall7.Single(x => x.Keyid == id);
             return View(mummy);
         }
 
-        [Authorize(Roles = "Admin,Researcher,TA")]
+        //[Authorize(Roles = "Admin,Researcher,TA")]
         [HttpPost]
         public IActionResult Delete(Burialall7 ba)
         {
